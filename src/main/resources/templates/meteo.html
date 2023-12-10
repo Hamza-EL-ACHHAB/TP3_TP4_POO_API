@@ -1,0 +1,85 @@
+<html>
+<head>
+    <title>EL ACHHAB Hamza</title>
+    <meta charset="UTF-8">
+
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+          crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css"
+          href="https://cdn.datatables.net/v/dt/dt-1.11.5/datatables.min.css"/>
+    <script
+            src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdn.datatables.net/v/dt/dt-1.11.5/datatables.min.js"></script>
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
+          integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn"
+          crossorigin="anonymous">
+    <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js"
+            integrity="sha384-VHvPCCyXqtD5DqJeNxl2dtTyhF78xXNXdkwX1CZeRusQfRKp+tA7hAShOK/B/fQ2"
+            crossorigin="anonymous"></script>
+    <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF"
+            crossorigin="anonymous"></script>
+</head>
+<body>
+
+<header>
+    <div th:insert="fragments/navigation :: navigation"></div>
+</header>
+<br>
+
+<section class="vh-100">
+    <div class="container py-5 h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-md-8 col-lg-6 col-xl-4">
+                <div class="card" style="color: #4B515D; border-radius: 35px;">
+                    <div class="card-body p-4">
+                        <div class="d-flex">
+                            <h6 class="flex-grow-1"><p th:text=" ${city} "/></h6>
+                        </div>
+                        <div class="d-flex flex-column text-center mt-5 mb-4">
+                            <h6 class="display-4 mb-0 font-weight-bold" style="color: #1C2331;"><span
+                                    th:text="${temp}"/>°C</h6>
+                            <span class="small" style="color: #868B94"><p th:text=" ${weather} "/></span>
+                        </div>
+                        <div class="d-flex align-items-center">
+                            <div class="flex-grow-1" style="font-size: 1rem;">
+                                <div><i class="fas fa-wind fa-fw" style="color: #868B94;"></i> <span class="ms-1"> lat: <p
+                                        th:text=" ${lat} "/>
+                  </span></div>
+                                <div><i class="fas fa-tint fa-fw" style="color: #868B94;"></i> <span
+                                        class="ms-1"> lon:<p th:text=" ${lon} "/>  </span>
+                                </div>
+                                <div><i class="fas fa-sun fa-fw" style="color: #868B94;"></i> <span class="ms-1"> vent : <p
+                                        th:text=" ${wind} "/> </span>
+                                </div>
+                            </div>
+                            <div>
+                                <img th:if="${temp} <= 3"
+                                     src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-weather/ilu1.webp"
+                                     width="100px">
+                                <img th:if="${temp} > 3"
+                                     src="https://static.vecteezy.com/system/resources/previews/009/344/657/non_2x/sun-transparent-background-free-png.png"
+                                     width="100px">
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+</body>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#example').DataTable(
+        );
+    });
+</script>
+</html>
